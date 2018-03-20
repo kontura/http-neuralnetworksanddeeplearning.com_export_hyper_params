@@ -1,0 +1,6 @@
+execfile('simple_conv.py')
+net
+net.layer
+net.layers
+import readline
+readline.write_history_file('./history_with_bigassnet')

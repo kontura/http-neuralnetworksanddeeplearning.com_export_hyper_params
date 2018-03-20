@@ -1,0 +1,11 @@
+import network3
+from network3 import Network
+from network3 import ConvPoolLayer, FullyConnectedLayer, SoftmaxLayer
+training_data, validation_data, test_data = network3.load_data_shared()
+mini_batch_size = 10
+
+net = Network([ConvPoolLayer(image_shape=(mini_batch_size, 1, 28, 28), filter_shape=(3, 1, 5, 5), poolsize=(2, 2)), SoftmaxLayer(n_in=432, n_out=10) ], mini_batch_size)
+
+net.SGD(training_data, 30, mini_batch_size, 0.03, validation_data, test_data, lmbda=0.1)
+
+
